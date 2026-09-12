@@ -1,0 +1,7 @@
+zig-out/
+.zig-cache/
+zig-pkg/
+lib/**/.zig-cache/
+lib/**/zig-out/
+.DS_Store
+*.log

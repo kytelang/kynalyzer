@@ -1,0 +1,27 @@
+name: ci
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kynalyzer
+        uses: actions/checkout@v4
+        with:
+          path: kynalyzer
+      # The server reuses the Kyte compiler frontend; it must be a sibling checkout at ../kyte.
+      - name: Checkout kyte (compiler)
+        uses: actions/checkout@v4
+        with:
+          repository: kytelang/kyte
+          path: kyte
+      - name: Install Zig 0.16.0
+        uses: mlugg/setup-zig@v1
+        with:
+          version: 0.16.0
+      - name: Gate (build + test + cross)
+        working-directory: kynalyzer
+        run: ./gate.sh

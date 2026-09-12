@@ -1,0 +1,19 @@
+.{
+    .name = .kynalyzer,
+    .version = "1.0.0",
+    .fingerprint = 0x26137d05215705ec,
+    .minimum_zig_version = "0.16.0",
+    .dependencies = .{
+        .lsp_kit = .{
+            .path = "lib/lsp-kit-0.16.0",
+        },
+    },
+    .paths = .{
+        "build.zig",
+        "build.zig.zon",
+        "src",
+        // For example...
+        //"LICENSE",
+        //"README.md",
+    },
+}
